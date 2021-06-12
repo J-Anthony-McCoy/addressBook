@@ -16,6 +16,7 @@ public class Entry {
         this.emailAddress = emailAddress;
     }
 
+
     //    Getters and Setters
     public String getFirstName() {
         return firstName;
@@ -48,16 +49,16 @@ public class Entry {
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
-//    To String for readability
+
+    //    To String for readability
     @Override
     public String toString() {
-        return "Entries{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                '}';
-    }
-
+        return "\n*** Entry Printout ***" +
+                "\nFirst Name: '" + firstName + '\'' +
+                "\nLast Name: '" + lastName + '\'' +
+                "\nPhone Number: '" + phoneNumber + '\'' +
+                "\nEmail Address: '" + emailAddress + '\'' +
+                "\n";
+                }
 
 }
