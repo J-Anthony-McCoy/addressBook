@@ -55,7 +55,8 @@ public class Main {
         } else if (option == 6) {
             quitProgram();
         } else {
-            System.out.println("Still coding!");
+            System.out.println("Invalid input, try again!");
+            welcomePage();
         }
     }
 
@@ -96,8 +97,9 @@ public class Main {
         String emailToRemove = input.nextLine();
         for (int i = 0; i < userEntry.size(); i++) {
             if (userEntry.get(i).getEmailAddress().equals(emailToRemove)) {
+                System.out.println("Entry below was deleted!");
+                System.out.println(userEntry.get(i));
                 userEntry.remove(i);
-                System.out.println("Entry is deleted!");
                 welcomePage();
             }
         }
@@ -131,9 +133,15 @@ public class Main {
 
 //      No. 4 - Method to print entire address book
     public static void printAddressBook() {
-        System.out.println(userEntry);
-        welcomePage();
-    }
+        if (userEntry.size() == 0){
+            System.out.println("Address Book is empty!");
+            welcomePage();
+        } else {
+            System.out.println("***** Printout of All Entries *****");
+            System.out.println(userEntry);
+            welcomePage();
+        }
+        }
 
 //      No. 5 - Method to delete entire address book
     public static void deleteAddressBook() {
