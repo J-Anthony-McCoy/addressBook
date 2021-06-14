@@ -26,19 +26,19 @@ public class Main {
         System.out.println("5) Delete Book");
         System.out.println("6) Quit");
 
-        int option = input.nextInt();
+        String option = input.nextLine();
 
-        if (option == 1) {
+        if (option.equals("1")) {
             addEntry();
-        } else if (option == 2) {
+        } else if (option.equals("2")) {
             removeEntry();
-        } else if (option == 3) {
+        } else if (option.equals("3")) {
             searchEntry();
-        } else if (option == 4) {
+        } else if (option.equals("4")) {
             printAddressBook();
-        } else if (option == 5) {
+        } else if (option.equals("5")) {
             deleteAddressBook();
-        } else if (option == 6) {
+        } else if (option.equals("6")) {
             quitProgram();
         } else {
             System.out.println("\nInvalid input, try again!");
@@ -103,93 +103,93 @@ public class Main {
     //      No. 3 - Method to search for an entry
     public static void searchEntry() {
         if (userEntry.size() > 0) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("***** Searching for an Entry *****");
-        System.out.println("How do you want to search for an entry? Please enter a number 1 - 4.\n");
-        System.out.println("1) First name");
-        System.out.println("2) Last name");
-        System.out.println("3) Phone Number");
-        System.out.println("4) Email Address");
+            Scanner input = new Scanner(System.in);
+            System.out.println("***** Searching for an Entry *****");
+            System.out.println("How do you want to search for an entry? Please enter a number 1 - 4.\n");
+            System.out.println("1) First name");
+            System.out.println("2) Last name");
+            System.out.println("3) Phone Number");
+            System.out.println("4) Email Address");
 
-        String searchMethod = input.nextLine();
+            String searchMethod = input.nextLine();
 
-        if (searchMethod.equals("1")) {
-            System.out.println("Enter the first letter of the first name you want to search for: ");
-            String firstNameSearch = input.nextLine();
-            for (Entry f : userEntry) {
-                if (f.getFirstName().startsWith(firstNameSearch)) {
-                    System.out.println("***** First Name Search Results *****");
-                    System.out.println("First Name: " + f.getFirstName() +
-                            "\nLast Name: " + f.getLastName() +
-                            "\nPhone Number: " + f.getPhoneNumber() +
-                            "\nEmail Address: " + f.getEmailAddress());
-                    welcomePage();
-                    return;
+            if (searchMethod.equals("1")) {
+                System.out.println("Enter the first letter of the first name you want to search for: ");
+                String firstNameSearch = input.nextLine();
+                for (Entry f : userEntry) {
+                    if (f.getFirstName().startsWith(firstNameSearch)) {
+                        System.out.println("***** First Name Search Results *****");
+                        System.out.println("First Name: " + f.getFirstName() +
+                                "\nLast Name: " + f.getLastName() +
+                                "\nPhone Number: " + f.getPhoneNumber() +
+                                "\nEmail Address: " + f.getEmailAddress());
+                        welcomePage();
+                        return;
+                    }
                 }
-            }
-            System.out.println("\nNo entry found!");
-            welcomePage();
+                System.out.println("\nNo entry found!");
+                welcomePage();
 
-        } else if (searchMethod.equals("2")) {
-            System.out.println("Enter the first letter of the last name you want to search for: ");
-            String lastNameSearch = input.nextLine();
-            for (Entry l : userEntry) {
-                if (l.getLastName().startsWith(lastNameSearch)) {
-                    System.out.println("***** Last Name Search Results *****");
-                    System.out.println("First Name: " + l.getFirstName() +
-                            "\nLast Name: " + l.getLastName() +
-                            "\nPhone Number: " + l.getPhoneNumber() +
-                            "\nEmail Address: " + l.getEmailAddress());
-                    welcomePage();
-                    return;
+            } else if (searchMethod.equals("2")) {
+                System.out.println("Enter the first letter of the last name you want to search for: ");
+                String lastNameSearch = input.nextLine();
+                for (Entry l : userEntry) {
+                    if (l.getLastName().startsWith(lastNameSearch)) {
+                        System.out.println("***** Last Name Search Results *****");
+                        System.out.println("First Name: " + l.getFirstName() +
+                                "\nLast Name: " + l.getLastName() +
+                                "\nPhone Number: " + l.getPhoneNumber() +
+                                "\nEmail Address: " + l.getEmailAddress());
+                        welcomePage();
+                        return;
+                    }
                 }
-            }
-            System.out.println("\nNo entry found!");
-            welcomePage();
+                System.out.println("\nNo entry found!");
+                welcomePage();
 
-        } else if (searchMethod.equals("3")) {
-            System.out.println("Enter the first digit for the phone number you want to search for: ");
-            String phoneNumberSearch = input.nextLine();
-            for (Entry p : userEntry) {
-                if (p.getPhoneNumber().startsWith(phoneNumberSearch)) {
-                    System.out.println("***** Phone Number Search Results *****");
-                    System.out.println("First Name: " + p.getFirstName() +
-                            "\nLast Name: " + p.getLastName() +
-                            "\nPhone Number: " + p.getPhoneNumber() +
-                            "\nEmail Address: " + p.getEmailAddress());
-                    welcomePage();
-                    return;
+            } else if (searchMethod.equals("3")) {
+                System.out.println("Enter the first digit for the phone number you want to search for: ");
+                String phoneNumberSearch = input.nextLine();
+                for (Entry p : userEntry) {
+                    if (p.getPhoneNumber().startsWith(phoneNumberSearch)) {
+                        System.out.println("***** Phone Number Search Results *****");
+                        System.out.println("First Name: " + p.getFirstName() +
+                                "\nLast Name: " + p.getLastName() +
+                                "\nPhone Number: " + p.getPhoneNumber() +
+                                "\nEmail Address: " + p.getEmailAddress());
+                        welcomePage();
+                        return;
+                    }
                 }
-            }
-            System.out.println("\nNo entry found!");
-            welcomePage();
+                System.out.println("\nNo entry found!");
+                welcomePage();
 
-        } else if (searchMethod.equals("4")) {
-            System.out.println("Enter the first letter of the email address you want to search for: ");
-            String emailAddressSearch = input.nextLine();
-            for (Entry e : userEntry) {
-                if (e.getEmailAddress().startsWith(emailAddressSearch)) {
-                    System.out.println("***** Email Address Search Results *****");
-                    System.out.println("First Name: " + e.getFirstName() +
-                            "\nLast Name: " + e.getLastName() +
-                            "\nPhone Number: " + e.getPhoneNumber() +
-                            "\nEmail Address: " + e.getEmailAddress());
-                    welcomePage();
-                    return;
+            } else if (searchMethod.equals("4")) {
+                System.out.println("Enter the first letter of the email address you want to search for: ");
+                String emailAddressSearch = input.nextLine();
+                for (Entry e : userEntry) {
+                    if (e.getEmailAddress().startsWith(emailAddressSearch)) {
+                        System.out.println("***** Email Address Search Results *****");
+                        System.out.println("First Name: " + e.getFirstName() +
+                                "\nLast Name: " + e.getLastName() +
+                                "\nPhone Number: " + e.getPhoneNumber() +
+                                "\nEmail Address: " + e.getEmailAddress());
+                        welcomePage();
+                        return;
+                    }
                 }
-            }
-            System.out.println("\nNo entry found!");
-            welcomePage();
+                System.out.println("\nNo entry found!");
+                welcomePage();
 
+            } else {
+                System.out.println("\nInvalid input! Try again.\n");
+                searchEntry();
+            }
         } else {
-            System.out.println("\nInvalid input! Try again.\n");
-            searchEntry();
-        }
-    } else {
             System.out.println("\nNo entries in Address Book to search!");
             welcomePage();
         }
-        }
+    }
 
     //      No. 4 - Method to print entire address book
     public static void printAddressBook() {
