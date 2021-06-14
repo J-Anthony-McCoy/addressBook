@@ -41,7 +41,7 @@ public class Main {
         } else if (option == 6) {
             quitProgram();
         } else {
-            System.out.println("Invalid input, try again!");
+            System.out.println("\nInvalid input, try again!");
             welcomePage();
         }
     }
@@ -61,7 +61,7 @@ public class Main {
         String phoneNumber = entryInput.nextLine();
         System.out.println("Email Address: ");
         String emailAddress = entryInput.nextLine();
-        System.out.println("New entry is added!");
+        System.out.println("\nNew entry is added!");
 
 //      Object to store all user entry data
         Entry entry = new Entry(firstName, lastName, phoneNumber, emailAddress);
@@ -88,10 +88,14 @@ public class Main {
                     System.out.println(userEntry.get(i));
                     userEntry.remove(i);
                     welcomePage();
+                    return;
                 }
             }
+            System.out.println("\nNo entry found!");
+            welcomePage();
+
         } else {
-            System.out.println("\nNo entries in Address Book to be removed! Taking you back to Welcome Page...");
+            System.out.println("\nNo entries in Address Book to be removed!");
             welcomePage();
         }
     }
@@ -120,8 +124,12 @@ public class Main {
                             "\nPhone Number: " + f.getPhoneNumber() +
                             "\nEmail Address: " + f.getEmailAddress());
                     welcomePage();
+                    return;
                 }
             }
+            System.out.println("\nNo entry found!");
+            welcomePage();
+
         } else if (searchMethod.equals("2")) {
             System.out.println("Enter the first letter of the last name you want to search for: ");
             String lastNameSearch = input.nextLine();
@@ -133,8 +141,12 @@ public class Main {
                             "\nPhone Number: " + l.getPhoneNumber() +
                             "\nEmail Address: " + l.getEmailAddress());
                     welcomePage();
+                    return;
                 }
             }
+            System.out.println("\nNo entry found!");
+            welcomePage();
+
         } else if (searchMethod.equals("3")) {
             System.out.println("Enter the first digit for the phone number you want to search for: ");
             String phoneNumberSearch = input.nextLine();
@@ -146,8 +158,12 @@ public class Main {
                             "\nPhone Number: " + p.getPhoneNumber() +
                             "\nEmail Address: " + p.getEmailAddress());
                     welcomePage();
+                    return;
                 }
             }
+            System.out.println("\nNo entry found!");
+            welcomePage();
+
         } else if (searchMethod.equals("4")) {
             System.out.println("Enter the first letter of the email address you want to search for: ");
             String emailAddressSearch = input.nextLine();
@@ -159,14 +175,18 @@ public class Main {
                             "\nPhone Number: " + e.getPhoneNumber() +
                             "\nEmail Address: " + e.getEmailAddress());
                     welcomePage();
+                    return;
                 }
             }
-        } else {
-            System.out.println("Invalid input! Taking you back to Welcome Page...");
+            System.out.println("\nNo entry found!");
             welcomePage();
+
+        } else {
+            System.out.println("\nInvalid input! Try again.\n");
+            searchEntry();
         }
     } else {
-            System.out.println("\nNo entries in Address Book to search! Taking you back to Welcome Page...");
+            System.out.println("\nNo entries in Address Book to search!");
             welcomePage();
         }
         }
@@ -174,7 +194,7 @@ public class Main {
     //      No. 4 - Method to print entire address book
     public static void printAddressBook() {
         if (userEntry.size() == 0) {
-            System.out.println("Address Book is empty!");
+            System.out.println("\nAddress Book is empty!");
             welcomePage();
         } else {
             System.out.println("***** Printout of All Entries *****");
@@ -185,15 +205,20 @@ public class Main {
 
     //      No. 5 - Method to delete entire address book
     public static void deleteAddressBook() {
-        userEntry.clear();
-        System.out.println("\n***** Deleting the Entire Address Book *****");
-        System.out.println("All data in Address Book is deleted!");
-        welcomePage();
+        if (userEntry.size() > 0) {
+            userEntry.clear();
+            System.out.println("\n***** Deleting the Entire Address Book *****");
+            System.out.println("\nAll data in Address Book is deleted!");
+            welcomePage();
+        } else {
+            System.out.println("\nNo data in Address Book to delete!");
+            welcomePage();
+        }
     }
 
     //      No. 6 - Method to quit the program
     public static void quitProgram() {
-        System.out.println("Thanks! See you next time.");
+        System.out.println("\nThanks! See you next time.");
     }
 }
 
