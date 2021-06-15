@@ -16,7 +16,6 @@ public class Entry {
         this.emailAddress = emailAddress;
     }
 
-
     //    Getters and Setters
     public String getFirstName() {
         return firstName;
